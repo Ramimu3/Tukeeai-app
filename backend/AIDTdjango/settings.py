@@ -222,3 +222,4 @@ CSRF_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = True 
 SOCIAL_AUTH_GOOGLE_OAUTH2_CALLBACK_URL = 'http://127.0.0.1:8000/accounts/google/login/callback/'
 SOCIALACCOUNT_LOGIN_ON_GET=True
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
