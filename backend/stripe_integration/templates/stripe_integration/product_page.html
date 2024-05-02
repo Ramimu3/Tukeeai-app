@@ -1,0 +1,14 @@
+{% load static %}
+
+<body>
+  <div class="container home_msg">
+    {% if user.is_authenticated %}
+      <form action="{% url 'stripe_checkout' %}" method="POST">
+        {% csrf_token %}
+        <h2>Hi {{ user }}! To pay, click on this button <button type="submit" class="btn btn-success">Payment</button></h2>
+      </form>
+    {% else %}
+      <h2>Hi! To pay, please <a href="{% url 'login' %}">Login</a> first.</h2>
+    {% endif %}
+  </div>
+</body>

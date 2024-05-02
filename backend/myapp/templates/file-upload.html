@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form id="upload-form" method="post" enctype="multipart/form-data" action="{% url 'file_upload' %}">
+    {% csrf_token %}
+    <label for="file_input">+</label>
+    <input type="file" name="file" id="file_input" style="display: none;" required>
+    <span id="file_name"></span> <!-- Display selected file name -->
+    <button type="submit" id="submit_button" style="display: none;">Upload File</button>
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fileInput = document.getElementById('file_input');
+    const fileNameDisplay = document.getElementById('file_name');
+    const submitButton = document.getElementById('submit_button');
+
+    fileInput.addEventListener('change', function() {
+        if (this.files.length > 0) {
+            fileNameDisplay.textContent = `Selected file: ${this.files[0].name}`;
+            submitButton.style.display = 'block'; // Show the submit button
+        } else {
+            submitButton.style.display = 'none'; // Hide the submit button if no file is selected
+        }
+    });
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+python manage.py runserver
+python manage.py makemigrations
+python manage.py migrate
+celery -A AIDTdjango worker --loglevel=info
+celery -A myproject worker --loglevel=info
+
+Claude:
+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
+GPT:
+ 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
+HF: 
+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
+nvidia api:
+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
+https://integrate.api.nvidia.com/v1
+
+bd204e81e441e5964304325cdeedf0f495edc490

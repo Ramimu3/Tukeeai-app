@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+
+{% block title %}Book Data Exploration{% endblock %}
+
+{% block content %}
+      <div class="hero-section">
+        <div class="hero-section-content">
+          <div class="header-wrapper">
+            <div class="header-1">
+              Transform Your Books into AI-Trainable Data in Moments
+            </div>
+            <div class="subtitle">
+              From PDF & EPUB to Structured AI Datasets, Simplified
+              Revolutionize your AI training process with our advanced platform, designed to convert your textual documents into rich, structured datasets effortlessly
+            </div>
+            <div class="header-button-wrapper">
+              <button class="button primary max-width">Get Started</button>
+              <button class="button light">Tell me more</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="features-section section">
+        <div class="features-section-header-wrapper">
+          <h2 class="header-2">A Seamless Journey from Text to AI Training</h2>
+          <p class="paragraph">
+            Your Data, Reimagined for AI
+          </p>
+        </div>
+        <div class="feautres-wrapper">
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">Upload Your Document</div>
+              <div class="paragraph">
+                Start with your PDF or EPUB. Our platform handles the rest, converting your document into a clean TXT format.
+              </div>
+            </div>
+          </div>
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">Intelligent Segmentation</div>
+              <div class="paragraph">
+                Each document is meticulously divided into manageable chunks—30 per 100 pages—to ensure detailed and focused analysis.
+              </div>
+            </div>
+          </div>
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">AI-Powered Question Generation</div>
+              <div class="paragraph">
+                Our sophisticated AI dives into each chunk, crafting 30 insightful questions, each paired with its precise answer.
+              </div>
+            </div>
+          </div>
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">Consolidation</div>
+              <div class="paragraph">
+                These Q&A pairs are then beautifully organized into text files, one for each chunk.
+              </div>
+            </div>
+          </div>
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">Dataset Finalization</div>
+              <div class="paragraph">
+                Finally, all Q&A pairs are merged into a singular, comprehensive CSV file, perfectly formatted for AI training.
+              </div>
+            </div>
+          </div>
+          <div class="feature-container">
+            <div class="feature-icon-wrapper">
+              <svg
+                width="30"
+                height="35"
+                viewBox="0 0 30 35"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M28.9458 8.36653C28.2146 7.53778 27.4833 6.79078 26.6546 6.07528L24.3476 8.41528C21.7703 6.30935 18.5431 5.16103 15.2148 5.16553C7.13884 5.16553 0.589844 11.7145 0.589844 19.7905C0.589844 27.8665 7.13884 34.4155 15.2148 34.4155C23.3396 34.4155 29.8398 27.8665 29.8398 19.7905C29.8412 16.4761 28.712 13.2603 26.6388 10.6743L28.9458 8.36653ZM16.8401 21.4158H13.5896V10.0405H16.8401V21.4158ZM20.0898 3.54028H10.3398V0.290527H20.0898V3.54028Z"
+                  fill="#242021"
+                />
+              </svg>
+            </div>
+            <div class="feature-text-wrapper">
+              <div class="feature-title">Fine-tune to your hearts content</div>
+              <div class="paragraph feature-paragraph">
+                Mauris eget diam egestas, sagittis est et, imperdiet enim.
+                Mauris suscipit mollis tortor id facilisis.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="horizontal-section-high section">
+        <div class="image-wrapper-high"></div>
+        <div class="horizontal-text-wrapper">
+          <div class="header-2">
+            Extracting Text:
+          </div>
+          <div class="paragraph">
+            It extracts the core text content from the book, eliminating irrelevant elements like page numbers and formatting characters.
+          </div>
+          <button class="button primary">Get Started</button>
+        </div>
+      </div>
+      <div class="horizontal-section-high reverse section">
+        <div class="image-wrapper-high"></div>
+        <div class="horizontal-text-wrapper">
+          <div class="header-2">
+            Data Cleaning:
+          </div>
+          <div class="paragraph">
+            It meticulously cleans the extracted text, removing errors, inconsistencies, and unwanted information.
+          </div>
+          <button class="button primary">Get Started</button>
+        </div>
+      </div>
+
+      <div class="horizontal-section reverse section">
+        <div class="image-wrapper"></div>
+        <div class="horizontal-text-wrapper">
+          <div class="header-2">
+            Data Sanitization:
+          </div>
+          <div class="paragraph">
+            It sanitizes the data to ensure its compatibility with AI models and prevent errors during training.
+          </div>
+          <button class="button primary">Get Started</button>
+        </div>
+      </div>
+      <div class="horizontal-section section">
+        <div class="image-wrapper"></div>
+        <div class="horizontal-text-wrapper">
+          <div class="header-2">
+            Structured Output:
+          </div>
+          <div class="paragraph">
+            The final output is a well-structured CSV file that can be readily used for training various AI models.
+          </div>
+          <button class="button primary">Get Started</button>
+        </div>
+      </div>
+
+      <div class="horizontal-categories-section book-types-section section">
+        <div class="header-2 book-types-title">
+          Deliver anything from prescriptions to <br />
+          tonights dinner.
+        </div>
+        <div class="horizontal-categories-wrapper">
+          <div class="categorie">
+            <div class="categorie-title">Healthcare</div>
+            <div class="description">
+              Safely deliver medications and supplies, plus move samples from
+              patient to processing in minutes. Learn more
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="categorie-title">Time</div>
+            <div class="description">
+              Safely deliver medications and supplies, plus move samples from
+              patient to processing in minutes. Learn more
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="categorie-title">Time</div>
+            <div class="description">
+              Safely deliver medications and supplies, plus move samples from
+              patient to processing in minutes. Learn more
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="categorie-title">Time</div>
+            <div class="description">
+              Safely deliver medications and supplies, plus move samples from
+              patient to processing in minutes. Learn more
+            </div>
+          </div>
+          <div class="categorie">
+            <div class="categorie-title">Time</div>
+            <div class="description">
+              Safely deliver medications and supplies, plus move samples from
+              patient to processing in minutes. Learn more
+            </div>
+          </div>
+        </div>
+        <div class="image-wrapper"></div>
+      </div>
+      {% endblock %}
+      {% block scripts %}
+      {% endblock %} 

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plans & Pricing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Custom styles for the toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+            margin: 10px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #10b981;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<div class="navbar">
+    <div class="navbar-content">
+      <div class="logo">
+        <img src="Untitled design.svg" alt="Your Company Logo" id="navbar-logo"/>
+      </div>
+      <div class="attachments">
+        <a href="index.html">Home</a>
+        <a href="about-us.html">About Us</a>
+        <a href="faq.html">FAQ</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="signin.html">Sign In</a>
+        <button class="button primary max-width">
+          <span>Let's Talk</span>
+          <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1.5 2L7.44893 7.94893C7.47714 7.97714 7.47714 8.02286 7.44893 8.05107L1.5 14" stroke="#f8f8f8" stroke-width="2.16667" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+    <div class="container mx-auto px-4">
+        <!-- Switch for changing between Monthly and Yearly pricing -->
+        <div class="flex justify-end items-center mb-4">
+            <span class="text-gray-700">Monthly</span>
+            <label for="price-toggle" class="switch ml-2">
+                <input id="price-toggle" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <span class="text-gray-700 ml-2">Yearly</span>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Pro Plan -->
+            <div class="bg-white p-8 rounded-lg shadow text-center">
+                <h3 class="text-xl font-semibold mb-4">Pro</h3>
+                <p class="text-5xl font-bold mb-4">
+                    <span class="price monthly">$129.95</span>
+                    <span class="price yearly hidden">$1109.59</span>
+                    <span class="price-period">monthly</span>
+                </p>
+                <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-200 mb-4">Try for free</button>
+                <p class="text-gray-500 mb-4">or subscribe</p>
+                <!-- Features -->
+                <p class="text-gray-800 mb-2">For newbies and small teams:</p>
+                <ul class="text-gray-600">
+                    <li>✓ 5 projects</li>
+                    <li>✓ 500 keywords to track</li>
+                    <li>✓ 10,000 results per report</li>
+                </ul>
+                <p class="text-gray-800 mt-8 mb-2">SEO, PPC, and research tools:</p>
+                <ul class="text-gray-600">
+                    <li>Competitor analysis, keyword research, website audit, backlink analysis, advertising tools, and more</li>
+                </ul>
+                </div>
+
+        <!-- Guru Plan -->
+        <div class="bg-white p-8 rounded-lg shadow text-center">
+          <h3 class="text-xl font-semibold mb-4">Guru</h3>
+          <p class="text-5xl font-bold mb-4">
+              <span class="price monthly">$249.95</span>
+              <span class="price yearly hidden">$2494.59</span>
+              <span class="price-period">monthly</span>
+          </p>
+          <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-200 mb-4">Try for free</button>
+          <p class="text-gray-500 mb-4">or subscribe</p>
+          <p class="text-gray-800 mb-2">For agencies and mid-size businesses:</p>
+          <ul class="text-gray-600">
+              <li>✓ 15 projects</li>
+              <li>✓ 1,500 keywords to track</li>
+              <li>✓ 30,000 results per report</li>
+          </ul>
+          <p class="text-gray-800 mt-8 mb-2">All Pro features plus:</p>
+          <ul class="text-gray-600">
+              <li>Content Marketing Toolkit, historical data, multi-location and device tracking, Looker Studio integration, and more</li>
+          </ul>
+      </div>
+
+      <!-- Business Plan -->
+      <div class="bg-white p-8 rounded-lg shadow text-center">
+          <h3 class="text-xl font-semibold mb-4">Business</h3>
+          <p class="text-5xl font-bold mb-4">
+              <span class="price monthly">$499.95</span>
+              <span class="price yearly hidden">$4995.59</span>
+              <span class="price-period">monthly</span>
+          </p>
+          <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-200 mb-4">Subscribe</button>
+          <p class="text-gray-500 mb-4">or try a custom plan</p>
+          <!-- Features -->
+          <p class="text-gray-800 mb-2">For large agencies and enterprises:</p>
+                <ul class="text-gray-600">
+                    <li>✓ 40 projects</li>
+                    <li>✓ 5,000 keywords to track</li>
+                    <li>✓ 50,000 results per report</li>
+                </ul>
+                <p class="text-gray-800 mt-8 mb-2">All Guru features plus:</p>
+                <ul class="text-gray-600">
+                    <li>Share of Voice, extended limits, API access, PLA analytics, free migration from third-party tools, and more</li>
+                </ul>
+      </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for switching between Monthly and Yearly pricing -->
+    <script>
+        const toggleSwitch = document.getElementById('price-toggle');
+        const monthlyPrices = document.querySelectorAll('.price.monthly');
+        const yearlyPrices = document.querySelectorAll('.price.yearly');
+        const periodTexts = document.querySelectorAll('.price-period');
+
+        toggleSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                // Show yearly prices
+                monthlyPrices.forEach(price => price.classList.add('hidden'));
+                yearlyPrices.forEach(price => price.classList.remove('hidden'));
+                periodTexts.forEach(text => text.textContent = 'yearly');
+            } else {
+                // Show monthly prices
+                monthlyPrices.forEach(price => price.classList.remove('hidden'));
+                yearlyPrices.forEach(price => price.classList.add('hidden'));
+                periodTexts.forEach(text => text.textContent = 'monthly');
+            }
+        });
+    </script>
+</body>
+</html>
