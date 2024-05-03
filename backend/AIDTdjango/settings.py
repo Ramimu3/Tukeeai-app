@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.staticfiles",
+    'django.contrib.sites',
     "myapp",
     "authentication",
     "django_celery_results",
