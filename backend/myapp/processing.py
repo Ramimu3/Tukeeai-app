@@ -1,6 +1,5 @@
 import os
-import fitz  # PyMuPDF
-import ebooklib
+import pypdf
 from ebooklib import epub
 from bs4 import BeautifulSoup
 from django.conf import settings
@@ -13,33 +12,26 @@ import csv
 # processing.py
 def extract_text_from_file(file_path):
     if file_path.lower().endswith('.pdf'):
-        doc = fitz.open(file_path)
-        text = ""
-        for page in doc:
-            text += page.get_text()
-        num_pages = len(doc)
-        doc.close()
+        text, num_pages = extract_text_from_pdf(file_path)
         return text, True, num_pages  # Return text, is_pdf=True, and num_pages
     elif file_path.lower().endswith('.epub'):
-        book = epub.read_epub(file_path)
-        text = ""
-        for item in book.get_items_of_type(ebooklib.ITEM_DOCUMENT):
-            soup = BeautifulSoup(item.content, 'html.parser')
-            text += soup.get_text()
+        text = extract_text_from_epub(file_path)
         return text, False, 0  # Return text, is_pdf=False, and 0 for num_pages
     else:
         raise ValueError("Unsupported file format")
     
 def extract_text_from_pdf(pdf_path):
-    doc = fitz.open(pdf_path)
+    reader = pypdf.PdfReader(pdf_path)
     text = ""
-    for page in doc:
-        text += page.get_text()
-    doc.close()
-    return text
+    for page in reader.pages:
+        text += page.extract_text() if page.extract_text() else ""
+    num_pages = len(reader.pages)
+    return text, num_pages
+
+import ebooklib
 
 def extract_text_from_epub(epub_path):
-    book = epub.read_epub(epub_path)
+    book = ebooklib.epub.read_epub(epub_path)
     text = ""
     for item in book.get_items_of_type(ebooklib.ITEM_DOCUMENT):
         soup = BeautifulSoup(item.content, 'html.parser')
@@ -55,12 +47,10 @@ def save_chunks_to_files(chunks, base_name, output_dir="chunks"):
         print(f"Saved: {filename}")
 
 def adjust_chunk_end(text, start, end):
-    # Look for the nearest sentence end before the original end
     nearest_period = text.rfind('.', start, end)
     nearest_question = text.rfind('?', start, end)
     nearest_exclamation = text.rfind('!', start, end)
     new_end = max(nearest_period, nearest_question, nearest_exclamation) + 1
-    # If there's no sentence-ending punctuation, use the original end for the last chunk
     return new_end if new_end > start else end
 
 def split_text_into_chunks(text, is_pdf=False, num_pages=0):
@@ -81,31 +71,30 @@ def split_text_into_chunks(text, is_pdf=False, num_pages=0):
         if i < num_chunks - 1:
             end = adjust_chunk_end(text, start, end)
         else:
-            # Ensure the last chunk captures all remaining text
             end = len(text)
         chunks.append(text[start:end])
         start = end
 
     return chunks
+
 def convert_and_split(file_id, user_id):
     try:
         uploaded_file = UploadedFile.objects.get(id=file_id)
-        user = User.objects.get(id=user_id)  # Retrieve the user based on the passed user_id
+        user = User.objects.get(id=user_id)
 
         file_path = os.path.join(settings.MEDIA_ROOT, uploaded_file.file.name)
         text, is_pdf, num_pages = extract_text_from_file(file_path)
         chunks = split_text_into_chunks(text, is_pdf, num_pages)
         
-        # Use the user's username (or any unique identifier) in the directory structure
         base_name = os.path.splitext(os.path.basename(file_path))[0]
-        user_specific_dir = os.path.join('chunks', str(user.username))  # Using username for folder name
+        user_specific_dir = os.path.join('chunks', str(user.username))
         output_dir = os.path.join(settings.MEDIA_ROOT, user_specific_dir, str(file_id))
         
         save_chunks_to_files(chunks, base_name, output_dir)
         return output_dir
     except (UploadedFile.DoesNotExist, User.DoesNotExist):
-        # Handle the error appropriately
         raise ValueError("File or User not found.")
+
     
 def run_crew_ai(chunks_path, user_id):
     """
