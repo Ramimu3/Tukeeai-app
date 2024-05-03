@@ -94,7 +94,6 @@ def convert_and_split(file_id, user_id):
         return output_dir
     except (UploadedFile.DoesNotExist, User.DoesNotExist):
         raise ValueError("File or User not found.")
-
     
 def run_crew_ai(chunks_path, user_id):
     """

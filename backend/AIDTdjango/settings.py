@@ -70,10 +70,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
     'corsheaders.middleware.CorsMiddleware',
-
 ]
+
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8000',  # Replace with your Svelte frontend's URL
