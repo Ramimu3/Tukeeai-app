@@ -150,7 +150,5 @@ stripe==5.4.0
 pandas==2.0.1
 djangorestframework==3.14.0
 ebooklib==0.18
-PyMuPDF==1.21.1
-
 
 
