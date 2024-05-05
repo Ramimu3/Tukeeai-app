@@ -12,10 +12,6 @@ body {
   background-color: #f2ebe7;
 }
 
-.logo{
-  background: url(Untitled\ design.svg);
-}
-
 main {
   max-width: 1340px;
   width: 100%;
@@ -70,7 +66,6 @@ main {
 }
 .hero-section-content::before {
   content: "";
-  background: url("./books.jpg");
   background-position: 0 0;
   background-size: 100%;
   z-index: -1;

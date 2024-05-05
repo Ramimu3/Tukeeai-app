@@ -2,7 +2,6 @@ from django.shortcuts import render,HttpResponse, redirect
 from .forms import UploadFileForm
 from .models import UploadedFile, UploadedFilePydantic
 # Assume your utility functions are here
-from .utils import extract_text_from_file, split_text_into_chunks, save_chunks_to_files
 from django.contrib.auth.decorators import login_required
 import os
 from ninja import NinjaAPI
