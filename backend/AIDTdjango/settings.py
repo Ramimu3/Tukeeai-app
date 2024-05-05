@@ -30,7 +30,10 @@ SECRET_KEY = "django-insecure-@h!wy$+@fy@!jkg=3g^%gjfeh%a4z14oq$87l6p%-1(ogyv$3%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tukeeai-922147af33a3.herokuapp.com', 'tukeeai.com', 'www.tukeeai.com']
+
+
+
 
 
 # Application definition
