@@ -7,7 +7,9 @@
         <div class="about-content">
             <div class="about-image">
                 <div class="image-container">
-                    <img src={about} alt="" />
+                    <img src="/static/build/assets/About-us-page-bro.svg" alt="About Us" class="img-fluid">
+
+
                     <div class="image-overlay"></div>
                 </div>
             </div>

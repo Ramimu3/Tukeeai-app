@@ -1,9 +1,16 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
+import { defineConfig } from 'vite';
+import { svelte } from '@sveltejs/vite-plugin-svelte';
+import copy from 'rollup-plugin-copy';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte()],
+  plugins: [
+    svelte(),
+    copy({
+      targets: [
+        { src: 'src/assets/**/*', dest: 'dist/assets' },
+      ],
+    }),
+  ],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -11,7 +18,7 @@ export default defineConfig({
       output: {
         entryFileNames: 'bundle.js',
         chunkFileNames: 'bundle-[name].js',
-        assetFileNames: 'bundle-[name].[ext]',
+        assetFileNames: 'assets/[name].[ext]',
       },
     },
   },

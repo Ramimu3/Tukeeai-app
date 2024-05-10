@@ -40,7 +40,7 @@
       appElement.style.marginLeft = '';
     }
   });
-  
+
   </script>
   
   <NavbarSmallLight bind:isDarkMode={isDarkMode} />
@@ -53,7 +53,7 @@
         </div>
         <div class="bottom-section">
           <div class="image-container">
-            <img src={data} alt="" class="img-fluid">
+            <img src="/static/build/assets/Data-extraction-bro.svg" alt="hero-1" class="img-fluid">
           </div>
           <div class="button-container">
             <button class="btn btn-primary btn-lg">
@@ -63,7 +63,7 @@
         </div>
       </div>
       <div class="col-md-6 right-column">
-        <img src={hero} alt="" class="img-fluid">
+        <img src="/static/build/assets/Server-amico.svg" alt="hero-2" class="img-fluid">
       </div>
     </div>
   </div>

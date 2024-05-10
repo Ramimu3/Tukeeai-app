@@ -19,7 +19,7 @@
             <ul class="testimonial-list">
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image} alt="" />
+                        <img src="/static/build/assets/01.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Thomas Israel</a>
                             <p>C.E.O</p>
@@ -39,7 +39,7 @@
 
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image1} alt="" />
+                        <img src="/static/build/assets/02.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Barbara McIntosh</a>
                             <p>C.E.O</p>
@@ -61,7 +61,7 @@
             <ul class="testimonial-list hidden-sm">
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image2} alt="" />
+                        <img src="/static/build/assets/03.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Carl Oliver</a>
                             <p>C.E.O</p>
@@ -81,7 +81,7 @@
 
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image3} alt="" />
+                        <img  src="/static/build/assets/04.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Jill Webb</a>
                             <p>C.E.O</p>
@@ -103,7 +103,7 @@
             <ul class="testimonial-list hidden-lg">
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image4} alt="" />
+                        <img src="/static/build/assets/05.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Barbara McIntosh</a>
                             <p>C.E.O</p>
@@ -123,7 +123,7 @@
 
                 <li class="testimonial-item">
                     <div class="testimonial-header">
-                        <img src={image5} alt="" />
+                        <img src="/static/build/assets/06.jpg" alt="" />
                         <div class="testimonial-author">
                             <a href="/">Janisha Doll</a>
                             <p>C.E.O</p>

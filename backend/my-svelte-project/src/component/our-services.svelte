@@ -1,5 +1,4 @@
 <script>
-    import { HexagonIcon } from 'svelte-feather-icons';
     import customLight from '../assets/Landing/services/custom-support-light.svg';
     import customDark from '../assets/Landing/services/custom-support-dark.svg';
     import cleaningLight from '../assets/Landing/services/file-cleaning-light.svg';

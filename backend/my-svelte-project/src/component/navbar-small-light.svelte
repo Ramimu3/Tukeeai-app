@@ -141,8 +141,8 @@ $: {
 <nav class="nav" class:dark={isDarkMode} class:hidden={!isNavbarVisible}>
     <div class="logo">
         <a href="#home">
-            <img class="light-logo" src={logo_light} alt="Light Logo">
-            <img class="dark-logo" src={logo_dark} alt="Dark Logo">
+            <img class="light-logo"  src="/static/build/assets/Tukee-dark.svg" alt="Light Logo">
+            <img class="dark-logo"  src="/static/build/assets/Tukee-light.svg" alt="Dark Logo">
         </a>
     </div>
     <button class="menu-icon" class:open={isMobileMenuOpen} on:click={toggleMobileMenu}>
@@ -158,7 +158,7 @@ $: {
     <div class="navbar-actions">
         <!-- Dark mode toggle -->
         <button type="button" class="navbar-dark-mode-toggle" on:click={toggleDarkMode}>
-          <span class="sr-only">Toggle dark mode</span>
+          <span class="sr-only"></span>
           <svg class={`navbar-icon ${isDarkMode ? 'hidden' : 'block'}`} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
@@ -301,10 +301,11 @@ $: {
         background-color: #1f2937;
         color: #9ca3af;
         margin-right: 10px;
+        width: 30px;
     }
 
     .navbar-dark-mode-toggle:hover {
-        color: #fff;
+        color: var(--color-turquoise);
     }
 
     .navbar-dark-mode-toggle:focus {

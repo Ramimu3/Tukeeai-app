@@ -226,8 +226,8 @@
       <div class="nano-content">
         <div class="logo">
           <a href="#home">
-              <img class="light-logo" src={logo_light} alt="Light Logo">
-              <img class="dark-logo" src={logo_dark} alt="Dark Logo">
+              <img class="light-logo" src="/static/build/assets/Tukee-dark.svg" alt="Light Logo">
+              <img class="dark-logo" src="/static/build/assets/Tukee-light.svg" alt="Dark Logo">
           </a>
       </div>
         

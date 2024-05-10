@@ -14,7 +14,7 @@ const production = !process.env.ROLLUP_WATCH;
 const preprocess = sveltePreprocess({ typescript: true });
 
 // Update the output directory to match the Django static directory
-const outputDir = '../backend/frontend/static/build';
+const outputDir = '../frontend/static';
 
 export default {
   input: 'src/main.js',
@@ -22,7 +22,7 @@ export default {
     sourcemap: true,
     format: 'iife',
     name: 'app',
-    file: 'public/build/bundle.js',
+    file: '../frontend/static/build/bundle.js',
   },
   plugins: [
     svelte({
@@ -43,12 +43,12 @@ export default {
     !production && livereload(outputDir),
     production && terser(),
     url({
-      include: ['**/*.svg'],
+      include: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif'],
       limit: Infinity,
     }),
     copy({
       targets: [
-        { src: 'src/images/**/*', dest: 'public/build/images' },
+        { src: 'src/assets/**/*', dest: 'frontend/static/' },
       ],
     }),
   ],

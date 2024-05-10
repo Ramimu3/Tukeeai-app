@@ -30,7 +30,7 @@ SECRET_KEY = "django-insecure-@h!wy$+@fy@!jkg=3g^%gjfeh%a4z14oq$87l6p%-1(ogyv$3%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['tukeeai-922147af33a3.herokuapp.com', 'tukeeai.com', 'www.tukeeai.com']
+ALLOWED_HOSTS = ['tukeeai-922147af33a3.herokuapp.com', 'tukeeai.com', 'www.tukeeai.com', '127.0.0.1']
 
 
 
@@ -68,18 +68,22 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 
 ]
-
+STATIC_URL = "/static/"
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend', 'static'),
+]
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8000',  # Replace with your Svelte frontend's URL
@@ -103,9 +107,6 @@ TEMPLATES = [
     },
 ]
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend', 'static'),
-]
 
 WSGI_APPLICATION = "AIDTdjango.wsgi.application"
 
@@ -155,7 +156,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -189,7 +189,11 @@ AUTHENTICATION_BACKENDS = [
 
 
 DEBUG = True
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # For testing purposes
 
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'APP': {
@@ -229,6 +233,5 @@ CSRF_COOKIE_HTTPONLY = True
 CSRF_COOKIE_SECURE = True 
 SOCIAL_AUTH_GOOGLE_OAUTH2_CALLBACK_URL = 'http://127.0.0.1:8000/accounts/google/login/callback/'
 SOCIALACCOUNT_LOGIN_ON_GET=True
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 SITE_ID = 1
