@@ -68,7 +68,7 @@
       status = "Completed";
       // Redirect to the files page after a short delay
       setTimeout(() => {
-        window.location.href = '/files';
+        window.location.href = '/#/dashboard/files';
       }, 1000);
     } else if (data.state === 'FAILURE') {
       status = "Error";

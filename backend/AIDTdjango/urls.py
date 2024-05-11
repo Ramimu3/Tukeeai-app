@@ -22,6 +22,7 @@ from myapp.api import api
 from myapp.views import file_upload_view, task_progress, download_file
 from api.api import api
 from django.views.generic import TemplateView
+from django.contrib.auth import views as auth_views
 
 
 
@@ -36,6 +37,11 @@ urlpatterns = [
     path('celery-progress/', include('celery_progress.urls')),  # the endpoint is configurable
     path('accounts/', include('allauth.urls')),
     path('api/upload', file_upload_view, name='file_upload'),
+    path('accounts/password/reset/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('accounts/password/reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('accounts/password/reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('accounts/password/reset/complete/', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
+
 
     re_path(r'^.*$', TemplateView.as_view(template_name='index.html')),
 

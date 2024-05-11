@@ -1,1 +1,2 @@
 web: gunicorn AIDTdjango.wsgi
+worker: celery -A your_project worker --loglevel=info

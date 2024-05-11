@@ -5,6 +5,8 @@
   import githubLogo from './assets/github.svg';
   import { createEventDispatcher } from 'svelte';
   import { onMount, onDestroy } from 'svelte';
+  import { navigate } from 'svelte-routing';
+
 
   const dispatch = createEventDispatcher();
   onMount(() => {
@@ -37,38 +39,47 @@
   let errorMessage = '';
 
   async function handleSignIn() {
-    try {
-      const response = await fetch(`/api/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRFToken': getCookie('csrftoken'),
-        },
-      });
+  try {
+    console.log('Sending sign-in request...'); // Log before sending the request
+    const response = await fetch(`/api/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),
+      },
+    });
 
-      if (response.ok) {
-        const data = await response.json();
-        if (data.success) {
-          // Sign-in successful, emit the login event with the user's name
-          const loginEvent = { userName: username };
-          dispatch('login', loginEvent);
-          // Set a flag in localStorage to indicate successful login
-          localStorage.setItem('loginSuccess', 'true');
-          // Refresh the page
-          window.location.reload();
-        } else {
-          errorMessage = data.message || 'Sign-in failed. Please try again.';
-        }
+    console.log('Sign-in response received:', response); // Log the response object
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Sign-in response data:', data); // Log the response data
+      if (data.success) {
+        console.log('Sign-in successful'); // Log success message
+        // Sign-in successful, emit the login event with the user's name
+        const loginEvent = { userName: username };
+        dispatch('login', loginEvent);
+        // Set a flag in localStorage to indicate successful login
+        localStorage.setItem('loginSuccess', 'true');
+        // Navigate to the dashboard page using window.location.href
+        console.log('Redirecting to dashboard'); // Log the redirection attempt
+        window.location.href = '/#/dashboard';
       } else {
-        const errorData = await response.json();
-        console.error('Sign-in failed:', errorData);
-        errorMessage = errorData.detail || 'Sign-in failed. Please try again.';
+        console.log('Sign-in failed:', data.message); // Log the failure message
+        errorMessage = data.message || 'Sign-in failed. Please try again.';
       }
-    } catch (error) {
-      console.error('Error:', error);
-      errorMessage = 'An error occurred. Please try again later.';
+    } else {
+      const errorData = await response.json();
+      console.error('Sign-in request failed:', errorData); // Log the error data
+      errorMessage = errorData.detail || 'Sign-in failed. Please try again.';
     }
+  } catch (error) {
+    console.error('Error during sign-in:', error); // Log any errors
+    errorMessage = 'An error occurred. Please try again later.';
   }
+}
+
+
+
 
 
   // Helper function to get the CSRF token from the cookie
@@ -110,13 +121,13 @@
     </div>
     <p class="mt-4 text-center">Don't have an account? <a href="#/signup" class="text-primary">Sign Up</a></p>
 <div class="social-signup">
-  <a href="/accounts/google/login/?process=signup" class="btn btn-google">
+  <a href="/accounts/google/login/?process=signup&next=/#/dashboard" class="btn btn-google">
     <img src="{googleLogo}" alt="Google Logo" class="logo">
   </a>
-  <a href="/accounts/github/login/?process=signup" class="btn btn-github">
+  <a href="/accounts/github/login/?process=signup&next=/#/dashboard" class="btn btn-github">
     <img src="{githubLogo}" alt="GitHub Logo" class="logo">
   </a>
-  <a href="/accounts/facebook/login/?process=signup" class="btn btn-facebook">
+  <a href="/accounts/facebook/login/?process=signup&next=/#/dashboard" class="btn btn-facebook">
     <img src="{facebookLogo}" alt="Facebook Logo" class="logo">
   </a>
 </div>

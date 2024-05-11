@@ -5,18 +5,24 @@ from textwrap import dedent
 from langchain_openai import ChatOpenAI
 from concurrent.futures import ProcessPoolExecutor 
 from langchain.agents import Tool
-
+from langchain_community.llms import HuggingFaceEndpoint
 
 #llm_openai = ChatOpenAI(
  #  openai_api_key="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",
   #model_name="gpt-3.5-turbo-0125",  # Specified model
    #openai_api_base="https://api.openai.com/v1"  # OpenAI API endpoint
 #)
-llm_lmstudio = ChatOpenAI(
-   openai_api_base="http://localhost:1234/v1",
-   openai_api_key="no-key",
-   model_name=""
+llm = HuggingFaceEndpoint(
+endpoint_url="https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1",
+huggingfacehub_api_token="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",
+task="text-generation"
 )
+
+#llm_lmstudio = ChatOpenAI(
+ #  openai_api_base="http://localhost:1234/v1",
+  # openai_api_key="no-key",
+   #model_name=""
+#)
 llm_ollama=Ollama(model="mistralpara8q")
 
 class QuestionGenerationCrew:
@@ -35,17 +41,17 @@ class QuestionGenerationCrew:
             backstory='This agent specializes in critical thinking and question formation. It leverages the segmented text to craft questions that probe deeper into the content, facilitating understanding and engagement.',
             verbose=True,
             allow_delegation=False,
-            llm=llm_lmstudio,
+            llm=llm,
         )
 
         question_writer_and_answer_provider = Agent(
         role='Question Writer and Answer Provider',
-        goal=f'Write down the generated questions and provide at least {self.num_answers} detailed, expansive answers to these questions, combining them into a {self.num_pair} coherent question-answer format without changing the original text.',
+        goal=f'Write down the generated questions and provide at least {self.num_answers} detailed, expansive answers to these questions, combining them into a {self.num_pair} coherent question-answer format without changing the original question.',
         backstory='An adept content creator and analyst, this agent excels at interpreting and responding to complex questions with comprehensive, insightful answers. With a strong background in content synthesis, it ensures each question is addressed thoroughly, facilitating a deep engagement with the content.',
         verbose=True,
         memory=True,
         allow_delegation=False,
-        llm=llm_lmstudio,
+        llm=llm,
     )
     
 

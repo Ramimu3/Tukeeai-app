@@ -48,8 +48,8 @@
     <div class="row">
       <div class="col-md-6">
         <div class="top-section">
-          <div class="hero-header"><h2>Transform Your Data into AI Power</h2></div>
-          <p>Effortlessly convert vast data into actionable, AI-ready formats.</p>
+          <div class="hero-header"><h2>Create AI Datasets From any Data</h2></div>
+          <p>Train AI models to fit your needs</p>
         </div>
         <div class="bottom-section">
           <div class="image-container">
