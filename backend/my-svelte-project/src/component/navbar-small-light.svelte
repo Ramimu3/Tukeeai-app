@@ -298,12 +298,17 @@ $: {
     .navbar-dark-mode-toggle {
         padding: 0.25rem;
         border-radius: 9999px;
-        background-color: #1f2937;
         color: #9ca3af;
         margin-right: 10px;
         width: 30px;
     }
-
+    .navbar-dropdown-menu {
+    position: absolute;
+    background-color: var(--color-back);
+    border-radius: 10px;
+    border: 2px solid;
+    margin-top: 15px;
+}
     .navbar-dark-mode-toggle:hover {
         color: var(--color-turquoise);
     }
