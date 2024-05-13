@@ -6,6 +6,8 @@ from langchain_openai import ChatOpenAI
 from concurrent.futures import ProcessPoolExecutor 
 from langchain.agents import Tool
 from langchain_community.llms import HuggingFaceEndpoint
+from langchain_openai import OpenAI
+
 
 #llm_openai = ChatOpenAI(
  #  openai_api_key="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",
@@ -13,11 +15,16 @@ from langchain_community.llms import HuggingFaceEndpoint
    #openai_api_base="https://api.openai.com/v1"  # OpenAI API endpoint
 #)
 llm = HuggingFaceEndpoint(
-endpoint_url="https://api-inference.huggingface.co/models/mistralai/Mixtral-8x7B-Instruct-v0.1",
+endpoint_url="https://api-inference.huggingface.co/models/meta-llama/Meta-Llama-3-8B-Instruct",
 huggingfacehub_api_token="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",
 task="text-generation"
 )
-
+#openai = OpenAI(
+ #   api_key="LEv3ev2zHigA7V1PkpKwttQUyRqUfujT",
+  #  base_url="https://api.deepinfra.com/v1/openai",
+   # task="text-generation",
+    #temperature=0.1,
+#)
 #llm_lmstudio = ChatOpenAI(
  #  openai_api_base="http://localhost:1234/v1",
   # openai_api_key="no-key",
