@@ -165,8 +165,8 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-CELERY_BROKER_URL = os.environ.get( 'amqp://localhost', 'amqp://username:password@localhost:5672//')
-CELERY_RESULT_BACKEND = 'rpc://'
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'amqp://username:password@localhost:5672//')
+CELERY_RESULT_BACKEND = 'django-db'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_BACKEND = 'django-db'
