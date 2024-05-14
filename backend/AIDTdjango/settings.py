@@ -87,6 +87,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8000',  # Replace with your Svelte frontend's URL
+    'https://www.tukeeai.com',
 ]
 
 ROOT_URLCONF = "AIDTdjango.urls"
