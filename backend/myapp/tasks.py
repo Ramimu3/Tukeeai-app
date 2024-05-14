@@ -14,7 +14,7 @@ from django.utils import timezone
 from .processing import convert_and_split, run_crew_ai, process_folder_to_single_csv
 
 
-app = Celery('tasks', backend='rpc://', broker='amqp://guest@localhost//')
+app = Celery('tasks', backend='rpc://', broker='amqp://username:password@localhost:5672//')
 
 
 from celery import shared_task
